@@ -3,6 +3,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import Header from "./components/Header";
 import Clients from "./components/Clients";
 import AddClientModal from './components/AddClientModal';
+import Projects from './components/Projects';
 
 // Fix Apollo Cache Warning:
 const cache = new InMemoryCache({
@@ -36,6 +37,7 @@ function App() {
         <Header />
         <div className="container">
           <AddClientModal />
+          <Projects />
           <Clients />
         </div>
       </ApolloProvider>
