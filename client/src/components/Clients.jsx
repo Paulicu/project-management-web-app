@@ -1,4 +1,5 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
+
 import ClientRow from './ClientRow';
 import Spinner from './Spinner';
 

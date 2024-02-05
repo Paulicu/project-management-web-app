@@ -1,10 +1,31 @@
-import Header from "./components/Header";
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
+
+import Header from "./components/Header";
 import Clients from "./components/Clients";
+
+// Fix Apollo Cache Warning:
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        clients: {
+          merge(existing, incoming) {
+            return incoming;
+          }
+        },
+        projects: {
+          merge(existing, incoming) {
+            return incoming;
+          }
+        }
+      }
+    }
+  }
+});
 
 const client = new ApolloClient({
   uri: 'http://localhost:5000/graphql',
-  cache: new InMemoryCache()
+  cache
 });
 
 function App() {
